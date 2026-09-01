@@ -3,6 +3,7 @@ package jp.ac.meijou.android.s251205131;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.widget.TextView;
 import android.widget.ImageView;
 
@@ -33,9 +34,28 @@ public class MainActivity extends AppCompatActivity {
         });
 
         prefDataStore = PrefDataStore.getInstance(this);
+        prefDataStore.getString("name")
+                .ifPresent(name -> {
+                    /*
+                    var modText = "(pref)" + name;
+                    Log.d("meijo", modText);
+                    binding.textView.setText(modText);
+                     */ //デバック用のコード
+                    binding.textView.setText(name);
+                });
 
         binding.save.setOnClickListener(view -> {
             String text = binding.editTextText.getText().toString();
+            if ("a" .equals(text)){
+                //binding.textView.setText("Aの画像");
+                binding.vectorAsset.setImageResource(R.drawable.asset123);
+            } else if ("b" .equals((text))) {
+                //binding.textView.setText("Bの画像");
+                binding.vectorAsset.setImageResource(R.drawable.ic_launcher_background);
+            } else {
+                //binding.textView.setText("知らない画像");
+                binding.vectorAsset.setImageResource(R.drawable.ic_launcher_foreground);
+            }
             prefDataStore.setString("name", text);
         });
 
@@ -47,6 +67,14 @@ public class MainActivity extends AppCompatActivity {
         binding.change.setOnClickListener(view -> {
             String text = binding.editTextText.getText().toString();
             binding.textView.setText(text);
+        });
+
+        binding.reset.setOnClickListener(view -> {
+            String text = "Name";
+            binding.textView.setText("Guten Morgen!");
+            binding.editTextText.setText(text);
+            prefDataStore.setString("name", text);
+            binding.vectorAsset.setImageResource(R.drawable.vector_asset);
         });
 
         binding.editTextText.addTextChangedListener(new TextWatcher() {

@@ -8,6 +8,8 @@ import androidx.datastore.preferences.core.PreferencesKeys;
 import androidx.datastore.preferences.rxjava3.RxPreferenceDataStoreBuilder;
 import androidx.datastore.rxjava3.RxDataStore;
 
+import java.util.Optional;
+
 import io.reactivex.rxjava3.core.Single;
 
 public class PrefDataStore {
@@ -42,5 +44,21 @@ public class PrefDataStore {
                 })
                 .subscribe();
     }
+
+    public Optional<String> getString(String key) {
+        return dataStore.data()
+                .map(prefs -> {
+                    var prefKey = PreferencesKeys.stringKey(key);
+
+
+
+                    return Optional.ofNullable(prefs.get(prefKey));
+
+
+
+                })
+                .blockingFirst();
+    }
+
 
 }
