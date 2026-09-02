@@ -14,7 +14,7 @@
         android:layout_margin="16dp"
         android:textSize="30dp"
         android:gravity="end"
-        android:text="null"
+        android:text= "null"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -168,11 +168,11 @@
         android:text="="
         app:layout_constraintTop_toBottomOf="@id/Button_7"
         app:layout_constraintStart_toEndOf="@id/Button_0"
-        app:layout_constraintEnd_toStartOf="@id/Button_devide"
+        app:layout_constraintEnd_toStartOf="@id/Button_divide"
         />
 
     <Button
-        android:id="@+id/Button_devide"
+        android:id="@+id/Button_divide"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="÷"
