@@ -20,7 +20,7 @@ public class MainActivity3 extends AppCompatActivity {
     private int display; //表示されている数値
     private int operand1;//1つ目の入力値
     private int operand2;//2つ目の入力値
-    private Operator operator;//現在入力されている演算子
+    // private Operator operator;//現在入力されている演算子
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +54,7 @@ public class MainActivity3 extends AppCompatActivity {
         });
 
 
+        /*
         private void pushOperand(int num){
             if (operator == null) {
                 operand1 = operand1 * 10 + num;
@@ -125,6 +126,6 @@ public class MainActivity3 extends AppCompatActivity {
 
 
 
-
+        */
     }
 }
